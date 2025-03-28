@@ -137,3 +137,36 @@ input:checked + label.tarjeta-de-mokepon {
     cursor: not-allowed;
     transform: none;
 }
+.ataques {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mascota-jugador-container, 
+.mascota-enemigo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#imagen-mascota-jugador,
+#imagen-mascota-enemigo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    background: rgba(189, 224, 254, 0.7);
+    border-radius: 20px;
+    padding: 10px;
+}
+@keyframes ataque {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
+}
+
+.ataque-activo {
+    animation: ataque 0.5s;
+}

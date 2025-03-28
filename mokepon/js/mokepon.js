@@ -48,12 +48,15 @@ function seleccionarMascotaJugador(){
 
     let spanMascotaJugador = document.getElementById("mascota-jugador")
 
-    if (hipodogeSeleccionado){
-        spanMascotaJugador.innerHTML = "Hipodoge"
-    }else if(capipepoSeleccionado){
-        spanMascotaJugador.innerHTML = "Capipepo"
-    }else if(ratigueyaSeleccionado){
-        spanMascotaJugador.innerHTML = "Ratigueya"
+    if (hipodogeSeleccionado) {
+        spanMascotaJugador.innerHTML = "Hipodoge";
+        document.getElementById("imagen-mascota-jugador").src = "./assets/hipodoge.png";
+    } else if (capipepoSeleccionado) {
+        spanMascotaJugador.innerHTML = "Capipepo";
+        document.getElementById("imagen-mascota-jugador").src = "./assets/capipepo.png";
+    } else if (ratigueyaSeleccionado) {
+        spanMascotaJugador.innerHTML = "Ratigueya";
+        document.getElementById("imagen-mascota-jugador").src = "./assets/ratigueya.png";
     }
 
     seleccionarMascotaEmemigo()
@@ -62,13 +65,17 @@ function seleccionarMascotaJugador(){
 function seleccionarMascotaEmemigo(){
     let mascotaAleatorio = aleatorio(1,3)
     let spanMascotaEnemigo = document.getElementById("mascota-enemigo")
+    let imagenMascotaEnemigo = document.getElementById("imagen-mascota-enemigo");
 
-    if(mascotaAleatorio == 1){
-        spanMascotaEnemigo.innerHTML = "Hipodoge"
-    }else if(mascotaAleatorio == 2){
-        spanMascotaEnemigo.innerHTML = "Capipepo"
-    }else{
-        spanMascotaEnemigo.innerHTML = "Ratigueya"
+    if (mascotaAleatorio == 1) {
+        spanMascotaEnemigo.innerHTML = "Hipodoge";
+        imagenMascotaEnemigo.src = "./assets/hipodoge.png";
+    } else if (mascotaAleatorio == 2) {
+        spanMascotaEnemigo.innerHTML = "Capipepo";
+        imagenMascotaEnemigo.src = "./assets/capipepo.png";
+    } else {
+        spanMascotaEnemigo.innerHTML = "Ratigueya";
+        imagenMascotaEnemigo.src = "./assets/ratigueya.png";
     }
 
 }
@@ -102,6 +109,13 @@ function ataqueAleatorioEnemigo(){
 }
 
 function combate(){
+    const imagenJugador = document.getElementById("imagen-mascota-jugador");
+    const imagenEnemigo = document.getElementById("imagen-mascota-enemigo");
+    
+    imagenJugador.classList.add("ataque-activo");
+    setTimeout(() => {
+        imagenJugador.classList.remove("ataque-activo");
+    }, 500);
     let spanVidasJugador = document.getElementById("vidas-jugador")
     let spanVidasEnemigo = document.getElementById("vidas-enemigo")
 
