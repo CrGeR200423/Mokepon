@@ -121,3 +121,19 @@ input{
     text-align: center;
     text-align: center;
 }
+input:checked + label.tarjeta-de-mokepon {
+    background: rgba(100, 200, 100, 0.7);
+    box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.5);
+    transform: translateY(5px);
+}
+
+.tarjeta-de-mokepon {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#boton-mascota:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
